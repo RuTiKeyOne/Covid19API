@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Covid19_API</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ByCountryAllStatus\" />
+    <Folder Include="ByCountryLive\" />
+    <Folder Include="ByCountryTotal\" />
+    <Folder Include="ByCountry\" />
+    <Folder Include="Countries\" />
+    <Folder Include="DayOneAllStatus\" />
+    <Folder Include="DayOneLive\" />
+    <Folder Include="DayOneTotalAllStatus\" />
+    <Folder Include="DayOneTotal\" />
+    <Folder Include="DayOne\" />
+  </ItemGroup>
+
+</Project>

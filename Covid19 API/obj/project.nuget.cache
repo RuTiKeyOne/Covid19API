@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "RF0FxJzO5ImSUWIEtXwxPWkjjaqycnhiiVuZaY9Lo113hHf/sP6Rr4aO6ZRQohdgZN6NKyImIv84MGRrOtFHjw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19 API\\Covid19 API\\Covid19 API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rutikeyone\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Rutikeyone\\.nuget\\packages\\restsharp\\106.11.7\\restsharp.106.11.7.nupkg.sha512"
+  ],
+  "logs": []
+}
