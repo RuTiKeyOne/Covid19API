@@ -1,4 +1,5 @@
-﻿using Covid19_API.Countries;
+﻿using Covid19_API.ByCountry;
+using Covid19_API.Countries;
 using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
 using Covid19_API.DayOneLive;

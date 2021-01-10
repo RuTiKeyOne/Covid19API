@@ -1,4 +1,5 @@
-﻿using Covid19_API.Countries;
+﻿using Covid19_API.ByCountry;
+using Covid19_API.Countries;
 using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
 using Covid19_API.DayOneLive;
@@ -21,6 +22,7 @@ namespace Covid19_API.Receiving
         private List<CountryDayOneLiveData> CountryDayOneLiveData { get; set; }
         private List<CountryDayOneTotalData> CountryDayOneTotal { get; set; }
         private List<CountryDayOneTotalAllStatusData> CountryDayOneTotalAllStatus { get; set; }
+        private List<ByCountryData> ByCountryData { get; set; } 
         public Reception()
         {
             Client = new();
@@ -88,7 +90,13 @@ namespace Covid19_API.Receiving
             Response = Client.GetResponce($"https://api.covid19api.com/total/dayone/country/{country}");
             CountryDayOneTotalAllStatus = JsonConvert.DeserializeObject<List<CountryDayOneTotalAllStatusData>>(Response.Content);
             return CountryDayOneTotalAllStatus;
-
         } 
+
+        public List<ByCountryData> ReceivingByCountryData(string country, string fromTime, string toTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/country/{country}/status/confirmed?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
+            ByCountryData = JsonConvert.DeserializeObject<List<ByCountryData>>(Response.Content);
+            return ByCountryData;
+        }
     }
 }
