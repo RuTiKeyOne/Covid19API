@@ -16,12 +16,8 @@
     <Folder Include="ByCountryLive\" />
     <Folder Include="ByCountryTotal\" />
     <Folder Include="ByCountry\" />
-    <Folder Include="Countries\" />
-    <Folder Include="DayOneAllStatus\" />
-    <Folder Include="DayOneLive\" />
     <Folder Include="DayOneTotalAllStatus\" />
     <Folder Include="DayOneTotal\" />
-    <Folder Include="DayOne\" />
   </ItemGroup>
 
 </Project>
