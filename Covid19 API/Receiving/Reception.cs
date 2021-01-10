@@ -2,6 +2,7 @@
 using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
 using Covid19_API.DayOneLive;
+using Covid19_API.DayOneTotal;
 using Covid19_API.Summary;
 using Newtonsoft.Json;
 using RestSharp;
@@ -17,6 +18,7 @@ namespace Covid19_API.Receiving
         private List<CountryDayOneData> CountryDayOneData { get; set; }
         private List<CountryDayOneAllStatusData> CountryDayOneAllStatusData { get; set; }
         private List<CountryDayOneLiveData> CountryDayOneLiveData { get; set; }
+        private List<CountryDayOneTotalData> CountryDayOneTotal { get; set; }
         public Reception()
         {
             Client = new();
@@ -50,7 +52,7 @@ namespace Covid19_API.Receiving
         */
         public List<CountryDayOneAllStatusData> ReceivingCountryDayOneAllStatusData(string country)
         {
-            Response = Client.GetResponce($"https://api.covid19api.com/dayone/country/{country}/status/confirmed");
+            Response = Client.GetResponce($"https://api.covid19api.com/dayone/country/{country}");
             CountryDayOneAllStatusData = JsonConvert.DeserializeObject<List<CountryDayOneAllStatusData>>(Response.Content);
             return CountryDayOneAllStatusData;
         }
@@ -60,9 +62,20 @@ namespace Covid19_API.Receiving
         */
         public List<CountryDayOneLiveData> ReceivingCountryDayOneLiveData(string country)
         {
-            Response = Client.GetResponce($"https://api.covid19api.com/dayone/country/{country}/status/confirmed");
+            Response = Client.GetResponce($"https://api.covid19api.com/dayone/country/{country}/status/confirmed/live");
             CountryDayOneLiveData = JsonConvert.DeserializeObject<List<CountryDayOneLiveData>>(Response.Content);
             return CountryDayOneLiveData;
+        }
+
+        /*
+        Returns all cases by case type for a country from the first recorded case. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<CountryDayOneTotalData> ReceivingCountryDayOneTotal(string country)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/total/dayone/country/{country}/status/confirmed");
+            CountryDayOneTotal = JsonConvert.DeserializeObject<List<CountryDayOneTotalData>>(Response.Content);
+            return CountryDayOneTotal;
         }
     }
 }
