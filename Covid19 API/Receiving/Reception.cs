@@ -3,6 +3,7 @@ using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
 using Covid19_API.DayOneLive;
 using Covid19_API.DayOneTotal;
+using Covid19_API.DayOneTotalAllStatus;
 using Covid19_API.Summary;
 using Newtonsoft.Json;
 using RestSharp;
@@ -19,6 +20,7 @@ namespace Covid19_API.Receiving
         private List<CountryDayOneAllStatusData> CountryDayOneAllStatusData { get; set; }
         private List<CountryDayOneLiveData> CountryDayOneLiveData { get; set; }
         private List<CountryDayOneTotalData> CountryDayOneTotal { get; set; }
+        private List<CountryDayOneTotalAllStatusData> CountryDayOneTotalAllStatus { get; set; }
         public Reception()
         {
             Client = new();
@@ -77,5 +79,16 @@ namespace Covid19_API.Receiving
             CountryDayOneTotal = JsonConvert.DeserializeObject<List<CountryDayOneTotalData>>(Response.Content);
             return CountryDayOneTotal;
         }
+        /*
+        Returns all cases by case type for a country from the first recorded case. 
+        Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+         */
+        public List<CountryDayOneTotalAllStatusData> ReceivingCountryDayOneTotalAllStatus(string country)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/total/dayone/country/{country}");
+            CountryDayOneTotalAllStatus = JsonConvert.DeserializeObject<List<CountryDayOneTotalAllStatusData>>(Response.Content);
+            return CountryDayOneTotalAllStatus;
+
+        } 
     }
 }
