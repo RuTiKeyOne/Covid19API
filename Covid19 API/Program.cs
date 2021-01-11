@@ -1,4 +1,8 @@
 ﻿using Covid19_API.ByCountry;
+using Covid19_API.ByCountryAllStatus;
+using Covid19_API.ByCountryLive;
+using Covid19_API.ByCountryTotal;
+using Covid19_API.ByCountryTotalAllStatus;
 using Covid19_API.Countries;
 using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
@@ -16,7 +20,12 @@ namespace Covid19_API
     {
         static void Main(string[] args)
         {
-            
+            Reception Reception = new();
+            List<ByCountryTotalAllStatusData> ByCountryTotalData = Reception.ReceivingByCountryTotalAllStatusData("Russia");
+            foreach(var data in ByCountryTotalData)
+            {
+                Console.WriteLine(data.Date);
+            }
         }
     }
 }

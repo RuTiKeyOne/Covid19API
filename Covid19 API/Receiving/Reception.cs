@@ -1,4 +1,8 @@
 ﻿using Covid19_API.ByCountry;
+using Covid19_API.ByCountryAllStatus;
+using Covid19_API.ByCountryLive;
+using Covid19_API.ByCountryTotal;
+using Covid19_API.ByCountryTotalAllStatus;
 using Covid19_API.Countries;
 using Covid19_API.DayOne;
 using Covid19_API.DayOneAllStatus;
@@ -23,6 +27,10 @@ namespace Covid19_API.Receiving
         private List<CountryDayOneTotalData> CountryDayOneTotal { get; set; }
         private List<CountryDayOneTotalAllStatusData> CountryDayOneTotalAllStatus { get; set; }
         private List<ByCountryData> ByCountryData { get; set; } 
+        private List<ByCountryAllStatusData> ByCountryAllStatusData { get; set; }
+        private List<ByCountryLiveData> ByCountryLiveData { get; set; }
+        private List<ByCountryTotalData> ByCountryTotalData { get; set; }
+        private List<ByCountryTotalAllStatusData> ByCountryTotalAllStatusData { get; set; }
         public Reception()
         {
             Client = new();
@@ -90,13 +98,53 @@ namespace Covid19_API.Receiving
             Response = Client.GetResponce($"https://api.covid19api.com/total/dayone/country/{country}");
             CountryDayOneTotalAllStatus = JsonConvert.DeserializeObject<List<CountryDayOneTotalAllStatusData>>(Response.Content);
             return CountryDayOneTotalAllStatus;
-        } 
+        }
 
+        /*
+        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths 
+         */
         public List<ByCountryData> ReceivingByCountryData(string country, string fromTime, string toTime)
         {
             Response = Client.GetResponce($"https://api.covid19api.com/country/{country}/status/confirmed?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
             ByCountryData = JsonConvert.DeserializeObject<List<ByCountryData>>(Response.Content);
             return ByCountryData;
+        }
+
+        public List<ByCountryAllStatusData> ReceivingByCountryAllStatusData(string country, string fromTime, string toTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/country/{country}?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
+            ByCountryAllStatusData = JsonConvert.DeserializeObject<List<ByCountryAllStatusData>>(Response.Content);
+            return ByCountryAllStatusData;
+        }
+
+        public List<ByCountryLiveData> ReceivingByCountryLiveData(string country, string fromTime, string toTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/country/{country}/status/confirmed/live?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
+            ByCountryLiveData = JsonConvert.DeserializeObject<List<ByCountryLiveData>>(Response.Content);
+            return ByCountryLiveData;
+        }
+
+        /*
+        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<ByCountryTotalData> ReceivingByCountryTotalData(string country, string fromTime, string toTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/total/country/{country}/status/confirmed?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
+            ByCountryTotalData = JsonConvert.DeserializeObject<List<ByCountryTotalData>>(Response.Content);
+            return ByCountryTotalData;
+        }
+
+        /*
+        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<ByCountryTotalAllStatusData> ReceivingByCountryTotalAllStatusData(string country)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/total/country/{country}");
+            ByCountryTotalAllStatusData = JsonConvert.DeserializeObject<List<ByCountryTotalAllStatusData>>(Response.Content);
+            return ByCountryTotalAllStatusData;
         }
     }
 }
