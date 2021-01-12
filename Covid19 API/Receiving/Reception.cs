@@ -9,7 +9,14 @@ using Covid19_API.DayOneAllStatus;
 using Covid19_API.DayOneLive;
 using Covid19_API.DayOneTotal;
 using Covid19_API.DayOneTotalAllStatus;
+using Covid19_API.LiveByCountryAllStatus;
+using Covid19_API.LiveByCountryAndStatus;
+using Covid19_API.LiveByCountryAndStatusAfterDate;
+using Covid19_API.Stats;
 using Covid19_API.Summary;
+using Covid19_API.Version;
+using Covid19_API.WorldTotalWIP;
+using Covid19_API.WorldWIP;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Collections.Generic;
@@ -31,11 +38,19 @@ namespace Covid19_API.Receiving
         private List<ByCountryLiveData> ByCountryLiveData { get; set; }
         private List<ByCountryTotalData> ByCountryTotalData { get; set; }
         private List<ByCountryTotalAllStatusData> ByCountryTotalAllStatusData { get; set; }
+        private List<LiveByCountryAndStatusData> LiveByCountryAndStatusData { get; set; }
+        private List<LiveByCountryAllStatusData> LiveByCountryAllStatusData { get; set; }
+        private List<LiveByCountryAndStatusAfterDateData> LiveByCountryAndStatusAfterDateData { get; set; }
+        private List<WorldWIPData> WorldWIPData { get; set; }
+        private WorldTotalWIPData WorldTotalWIPData { get; set; }
+        private VersionData VersionData { get; set; }
+        private StatsData StatsData { get; set; }
         public Reception()
         {
             Client = new();
         }
-        //Get a summary of new and total cases per country updated daily sync
+
+        //A summary of new and total cases per country updated daily.
         public SummaryData ReceivingSummaryData()
         {
             Response = Client.GetResponce("https://api.covid19api.com/summary");
@@ -50,7 +65,7 @@ namespace Covid19_API.Receiving
             Countries = JsonConvert.DeserializeObject<List<CountriesData>>(Response.Content);
             return Countries;
         }
-        /*Returns all cases by case type for a country from the first recorded case. 
+        /*Returns all cases by case type for a country from the first recorded case.
         Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
         */
         public List<CountryDayOneData> ReceivingCountryDayOneData(string country)
@@ -145,6 +160,79 @@ namespace Covid19_API.Receiving
             Response = Client.GetResponce($"https://api.covid19api.com/total/country/{country}");
             ByCountryTotalAllStatusData = JsonConvert.DeserializeObject<List<ByCountryTotalAllStatusData>>(Response.Content);
             return ByCountryTotalAllStatusData;
+        }
+
+        /*
+        Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths 
+        */
+        public List<LiveByCountryAndStatusData> ReceivingLiveByCountryAndStatusData(string country)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/live/country/{country}/status/confirmed");
+            LiveByCountryAndStatusData = JsonConvert.DeserializeObject<List<LiveByCountryAndStatusData>>(Response.Content);
+            return LiveByCountryAndStatusData;
+        }
+
+        /*
+        Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<LiveByCountryAllStatusData> ReceivingLiveByCountryAllStatusData(string country)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/live/country/{country}");
+            LiveByCountryAllStatusData = JsonConvert.DeserializeObject<List<LiveByCountryAllStatusData>>(Response.Content);
+            return LiveByCountryAllStatusData;
+        }
+
+        /*
+        Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. 
+        Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<LiveByCountryAndStatusAfterDateData> ReceivingLiveByCountryAndStatusAfterDateData(string country, string afterTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/live/country/{country}/status/confirmed/date/{afterTime}T00:00:00Z");
+            LiveByCountryAndStatusAfterDateData = JsonConvert.DeserializeObject<List<LiveByCountryAndStatusAfterDateData>>(Response.Content);
+            return LiveByCountryAndStatusAfterDateData;
+        }
+
+        /*
+        Returns all live cases by case type for a country after a given date. 
+        These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public List<WorldWIPData> ReceivingWorldWIP(string fromTime, string toTime)
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/world?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
+            WorldWIPData = JsonConvert.DeserializeObject<List<WorldWIPData>>(Response.Content);
+            return WorldWIPData;
+        }
+
+        /*
+        Returns all live cases by case type for a country after a given date. 
+        These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
+        public WorldTotalWIPData ReceivingWorldTotalWIPData()
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/world/total");
+            WorldTotalWIPData = JsonConvert.DeserializeObject<WorldTotalWIPData>(Response.Content);
+            return WorldTotalWIPData;
+        }
+
+        //This route returns the usage of the API. This is not for any COVID related statistics.
+        public StatsData ReceivingStatsData()
+        {
+            Response = Client.GetResponce($"https://api.covid19api.com/stats");
+            StatsData = JsonConvert.DeserializeObject<StatsData>(Response.Content);
+            return StatsData;
+        }
+
+        public string ReceivingVersionData()
+        {
+            VersionData = new();
+            Response = Client.GetResponce($"https://api.covid19api.com/version");
+            VersionData.Version = JsonConvert.DeserializeObject<string>(Response.Content);
+            return VersionData.Version;
         }
     }
 }
