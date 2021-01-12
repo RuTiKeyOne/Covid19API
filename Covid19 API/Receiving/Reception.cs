@@ -65,8 +65,10 @@ namespace Covid19_API.Receiving
             Countries = JsonConvert.DeserializeObject<List<CountriesData>>(Response.Content);
             return Countries;
         }
-        /*Returns all cases by case type for a country from the first recorded case.
-        Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+        /*Returns all cases by case type for a country from the first recorded case. 
+        Country must be the Slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
         */
         public List<CountryDayOneData> ReceivingCountryDayOneData(string country)
         {
@@ -74,8 +76,10 @@ namespace Covid19_API.Receiving
             CountryDayOneData = JsonConvert.DeserializeObject<List<CountryDayOneData>>(Response.Content);
             return CountryDayOneData;
         }
+
         /*Returns all cases by case type for a country from the first recorded case. 
-        Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+        Country must be the Slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
         */
         public List<CountryDayOneAllStatusData> ReceivingCountryDayOneAllStatusData(string country)
         {
@@ -95,7 +99,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all cases by case type for a country from the first recorded case. Country must be the slug from /countries or /summary. 
+        Returns all cases by case type for a country from the first recorded case. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths
         */
         public List<CountryDayOneTotalData> ReceivingCountryDayOneTotal(string country)
@@ -106,8 +111,9 @@ namespace Covid19_API.Receiving
         }
         /*
         Returns all cases by case type for a country from the first recorded case. 
-        Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
-         */
+        Country must be the slug from /countries or /summary. 
+        Cases must be one of: confirmed, recovered, deaths
+        */
         public List<CountryDayOneTotalAllStatusData> ReceivingCountryDayOneTotalAllStatus(string country)
         {
             Response = Client.GetResponce($"https://api.covid19api.com/total/dayone/country/{country}");
@@ -116,9 +122,10 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Returns all cases by case type for a country. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths 
-         */
+        */
         public List<ByCountryData> ReceivingByCountryData(string country, string fromTime, string toTime)
         {
             Response = Client.GetResponce($"https://api.covid19api.com/country/{country}/status/confirmed?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
@@ -141,7 +148,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Returns all cases by case type for a country. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths
         */
         public List<ByCountryTotalData> ReceivingByCountryTotalData(string country, string fromTime, string toTime)
@@ -152,7 +160,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all cases by case type for a country. Country must be the slug from /countries or /summary. 
+        Returns all cases by case type for a country. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths
         */
         public List<ByCountryTotalAllStatusData> ReceivingByCountryTotalAllStatusData(string country)
@@ -163,7 +172,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths 
         */
         public List<LiveByCountryAndStatusData> ReceivingLiveByCountryAndStatusData(string country)
@@ -174,8 +184,9 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
-        Cases must be one of: confirmed, recovered, deaths
+        Returns all live cases by case type for a country. 
+        These records are pulled every 10 minutes and are ungrouped. 
+        Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
         */
         public List<LiveByCountryAllStatusData> ReceivingLiveByCountryAllStatusData(string country)
         {
@@ -185,7 +196,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. 
+        Returns all live cases by case type for a country after a given date. 
+        These records are pulled every 10 minutes and are ungrouped. 
         Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
         */
         public List<LiveByCountryAndStatusAfterDateData> ReceivingLiveByCountryAndStatusAfterDateData(string country, string afterTime)
@@ -197,10 +209,11 @@ namespace Covid19_API.Receiving
 
         /*
         Returns all live cases by case type for a country after a given date. 
-        These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        These records are pulled every 10 minutes and are ungrouped. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths
         */
-        public List<WorldWIPData> ReceivingWorldWIP(string fromTime, string toTime)
+        public List<WorldWIPData> ReceivingWorldWIPData(string fromTime, string toTime)
         {
             Response = Client.GetResponce($"https://api.covid19api.com/world?from={fromTime}T00:00:00Z&to={toTime}T00:00:00Z");
             WorldWIPData = JsonConvert.DeserializeObject<List<WorldWIPData>>(Response.Content);
@@ -208,8 +221,8 @@ namespace Covid19_API.Receiving
         }
 
         /*
-        Returns all live cases by case type for a country after a given date. 
-        These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. 
+        Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. 
+        Country must be the slug from /countries or /summary. 
         Cases must be one of: confirmed, recovered, deaths
         */
         public WorldTotalWIPData ReceivingWorldTotalWIPData()

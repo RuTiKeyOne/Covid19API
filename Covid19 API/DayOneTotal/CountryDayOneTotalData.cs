@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Covid19_API.DayOneTotal
 {
@@ -10,8 +6,11 @@ namespace Covid19_API.DayOneTotal
     {
         public string Country { get; set; }
         public string CountryCode { get; set; }
+        public string Province { get; set; }
+        public string City { get; set; }
+        public string CityCode { get; set; }
         public string Lat { get; set; }
-        public string Lot { get; set; }
+        public string Lon { get; set; }
         public string Cases { get; set; }
         public string Status { get; set; }
         public string Date { get; set; }

@@ -27,7 +27,12 @@ namespace Covid19_API
     {
         static void Main(string[] args)
         {
-            
+            Reception Reception = new();
+            List<WorldWIPData> CountryDayOneAllStatusData = Reception.ReceivingWorldWIPData("2020-05-01", "2020-06-01");
+            foreach(var data in CountryDayOneAllStatusData)
+            {
+                Console.WriteLine($"New deaths is {data.NewDeaths}, total confirmed is {data.TotalConfirmed}");
+            }
         }
     }
 }
