@@ -6,5 +6,31 @@ How you can use this API, I will write down below.
 You can get information with Reception class 
 
 # Summary
-## A summary of new and total cases per country updated daily.
+### A summary of new and total cases per country updated daily.
+
+![alt text](https://i.ibb.co/8rb3s9v/2021-01-13-174246.png)
+
+![alt text](https://i.ibb.co/sstsTj8/image.png)
+
+# Countries
+### Returns all the available countries and provinces, as well as the country slug for per country requests.
+
+![alt text](https://i.ibb.co/qJHxqvN/image.png)
+
+![alt text](https://i.ibb.co/PYtCh4p/image.png)
+
+# Day One
+### Returns all cases by case type for a country from the first recorded case. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/1GwBQ4Q/image.png)
+![alt text](https://i.ibb.co/PQJbY22/image.png)
+
+# Day One All Status
+### Returns all cases by case type for a country from the first recorded case. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/QD0MKgk/image.png)
+![alt text](https://i.ibb.co/2spCJ4Y/image.png)
+
+# Day One Live
+### Returns all cases by case type for a country from the first recorded case with the latest record being the live count. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
