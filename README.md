@@ -73,3 +73,10 @@ You can get information with Reception class
 ![alt text](https://i.ibb.co/8rXz9f6/image.png)
 
 ![alt text](https://i.ibb.co/gy0FqG7/image.png)
+
+# By Country Total
+### Returns all cases by case type for a country. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/QPw4PcQ/image.png)
+
+![alt text](https://i.ibb.co/0FKNmCP/image.png)
