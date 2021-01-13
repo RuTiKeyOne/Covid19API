@@ -34,3 +34,11 @@ You can get information with Reception class
 # Day One Live
 ### Returns all cases by case type for a country from the first recorded case with the latest record being the live count. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
+![alt text](https://i.ibb.co/5WkKNTt/image.png)
+![alt text](https://i.ibb.co/qF27VR6/image.png)
+
+# Day One Total
+### Returns all cases by case type for a country from the first recorded case. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/JHRnYsB/image.png)
+![alt text](https://i.ibb.co/89dJ2Gb/image.png)
