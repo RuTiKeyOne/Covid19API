@@ -23,22 +23,33 @@ You can get information with Reception class
 ### Returns all cases by case type for a country from the first recorded case. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
 ![alt text](https://i.ibb.co/1GwBQ4Q/image.png)
+
 ![alt text](https://i.ibb.co/PQJbY22/image.png)
 
 # Day One All Status
 ### Returns all cases by case type for a country from the first recorded case. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
 ![alt text](https://i.ibb.co/QD0MKgk/image.png)
+
 ![alt text](https://i.ibb.co/2spCJ4Y/image.png)
 
 # Day One Live
 ### Returns all cases by case type for a country from the first recorded case with the latest record being the live count. Country must be the Slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
 ![alt text](https://i.ibb.co/5WkKNTt/image.png)
+
 ![alt text](https://i.ibb.co/qF27VR6/image.png)
 
 # Day One Total
 ### Returns all cases by case type for a country from the first recorded case. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
 
 ![alt text](https://i.ibb.co/JHRnYsB/image.png)
+
 ![alt text](https://i.ibb.co/89dJ2Gb/image.png)
+
+# Day One Total All Status
+### Returns all cases by case type for a country from the first recorded case. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/SmmYGDM/image.png)
+
+![alt text](https://i.ibb.co/JtQv9JC/image.png)
