@@ -80,3 +80,17 @@ You can get information with Reception class
 ![alt text](https://i.ibb.co/QPw4PcQ/image.png)
 
 ![alt text](https://i.ibb.co/0FKNmCP/image.png)
+
+# By Country Total All Status
+### Returns all cases by case type for a country. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/bdDKMwZ/image.png)
+
+![alt text](https://i.ibb.co/hfLWtJg/image.png)
+
+# Live By Country And Status
+### Returns all live cases by case type for a country. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/3WrbydD/image.png)
+
+![alt text](https://i.ibb.co/s66KVJQ/image.png)
