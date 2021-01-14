@@ -108,3 +108,10 @@ You can get information with Reception class
 ![alt text](https://i.ibb.co/dfXtyH2/image.png)
 
 ![alt text](https://i.ibb.co/WvrT38p/image.png)
+
+# World WIP
+### Returns all live cases by case type for a country after a given date. These records are pulled every 10 minutes and are ungrouped. Country must be the slug from /countries or /summary. Cases must be one of: confirmed, recovered, deaths
+
+![alt text](https://i.ibb.co/tqQLSSS/image.png)
+
+![alt text](https://i.ibb.co/PQypmR3/image.png)
