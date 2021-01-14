@@ -114,4 +114,4 @@ You can get information with Reception class
 
 ![alt text](https://i.ibb.co/tqQLSSS/image.png)
 
-![alt text](https://i.ibb.co/PQypmR3/image.png)
+![alt text](https://i.ibb.co/xHHQwG3/image.png)
