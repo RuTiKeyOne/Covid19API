@@ -122,3 +122,10 @@ You can get information with Reception class
 ![alt text](https://i.ibb.co/FxvgpCq/image.png)
 
 ![alt text](https://i.ibb.co/74JR0kj/image.png)
+
+# Stats
+### This route returns the usage of the API. This is not for any COVID related statistics.
+
+![alt text](https://i.ibb.co/Nn7BwHm/image.png)
+
+![alt text](https://i.ibb.co/qkYxGXG/image.png)
