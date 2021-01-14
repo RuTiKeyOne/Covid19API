@@ -129,3 +129,9 @@ You can get information with Reception class
 ![alt text](https://i.ibb.co/Nn7BwHm/image.png)
 
 ![alt text](https://i.ibb.co/qkYxGXG/image.png)
+
+# Version
+
+![alt text](https://i.ibb.co/yQz4sm2/image.png)
+
+![alt text](https://i.ibb.co/mTwv5yV/image.png)
