@@ -83,11 +83,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19 API\\Covid19 API\\Covid19 API.csproj",
+      "projectUniqueName": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19API\\Covid19 API\\Covid19 API.csproj",
       "projectName": "Covid19 API",
-      "projectPath": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19 API\\Covid19 API\\Covid19 API.csproj",
+      "projectPath": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19API\\Covid19 API\\Covid19 API.csproj",
       "packagesPath": "C:\\Users\\Rutikeyone\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19 API\\Covid19 API\\obj\\",
+      "outputPath": "C:\\Users\\Rutikeyone\\source\\repos\\Covid19API\\Covid19 API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rutikeyone\\AppData\\Roaming\\NuGet\\NuGet.Config",
